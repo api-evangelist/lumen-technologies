@@ -19,12 +19,10 @@ servers:
   - url: https://api.lumen.com
     description: Production
 tags:
-  - name: Connections
-    description: Manage internet connections
   - name: Bandwidth
     description: Bandwidth provisioning and adjustment
-  - name: Locations
-    description: Service location management
+  - name: Connections
+    description: Manage internet connections
 security:
   - oauth2: []
 paths:

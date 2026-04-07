@@ -1,16 +1,14 @@
 aid: lumen-technologies
-url: 
-  https://raw.githubusercontent.com/api-evangelist/lumen-technologies/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/lumen-technologies/refs/heads/main/apis.yml
 apis:
   - aid: lumen-technologies:internet-on-demand-api
     name: Lumen Internet On-Demand API
     tags:
-      - Telecom
-      - Internet
       - Bandwidth
+      - Internet
       - Networking
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Telecom
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.lumen.com
     humanURL: https://developer.lumen.com/apis/internet-on-demand
     properties:
@@ -28,12 +26,11 @@ apis:
   - aid: lumen-technologies:network-api
     name: Lumen Network API
     tags:
-      - Telecom
-      - Network
       - Fiber
       - Infrastructure
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Network
+      - Telecom
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.lumen.com
     humanURL: https://developer.lumen.com/products
     properties:

@@ -1,0 +1,187 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Lumen Internet On-Demand API
+  description: The Lumen Internet On-Demand API enables programmatic provisioning and management of internet bandwidth services.
+    It provides access to Lumen's global fiber network, allowing customers to dynamically adjust bandwidth, manage connections,
+    and automate network provisioning through a secure REST API using OAuth 2.0 client credentials authentication.
+  tags:
+  - Lumen
+  - Technologies
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: lumen-technologies
+    baseUri: https://api.lumen.com
+    description: Lumen Internet On-Demand API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{LUMEN_TECHNOLOGIES_TOKEN}}'
+    resources:
+    - name: internet-on-demand-connections
+      path: /internet-on-demand/connections
+      operations:
+      - name: listconnections
+        method: GET
+        description: List connections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createconnection
+        method: POST
+        description: Create a connection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: internet-on-demand-connections-connectionid
+      path: /internet-on-demand/connections/{connectionId}
+      operations:
+      - name: getconnection
+        method: GET
+        description: Get connection details
+        inputParameters:
+        - name: connectionId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: internet-on-demand-connections-connectionid-band
+      path: /internet-on-demand/connections/{connectionId}/bandwidth
+      operations:
+      - name: updatebandwidth
+        method: PUT
+        description: Update bandwidth
+        inputParameters:
+        - name: connectionId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: lumen-technologies-rest
+    description: REST adapter for Lumen Internet On-Demand API.
+    resources:
+    - path: /internet-on-demand/connections
+      name: listconnections
+      operations:
+      - method: GET
+        name: listconnections
+        description: List connections
+        call: lumen-technologies.listconnections
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /internet-on-demand/connections
+      name: createconnection
+      operations:
+      - method: POST
+        name: createconnection
+        description: Create a connection
+        call: lumen-technologies.createconnection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /internet-on-demand/connections/{connectionId}
+      name: getconnection
+      operations:
+      - method: GET
+        name: getconnection
+        description: Get connection details
+        call: lumen-technologies.getconnection
+        with:
+          connectionId: rest.connectionId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /internet-on-demand/connections/{connectionId}/bandwidth
+      name: updatebandwidth
+      operations:
+      - method: PUT
+        name: updatebandwidth
+        description: Update bandwidth
+        call: lumen-technologies.updatebandwidth
+        with:
+          connectionId: rest.connectionId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: lumen-technologies-mcp
+    transport: http
+    description: MCP adapter for Lumen Internet On-Demand API for AI agent use.
+    tools:
+    - name: listconnections
+      description: List connections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lumen-technologies.listconnections
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createconnection
+      description: Create a connection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lumen-technologies.createconnection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getconnection
+      description: Get connection details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lumen-technologies.getconnection
+      with:
+        connectionId: tools.connectionId
+      inputParameters:
+      - name: connectionId
+        type: string
+        description: connectionId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatebandwidth
+      description: Update bandwidth
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: lumen-technologies.updatebandwidth
+      with:
+        connectionId: tools.connectionId
+      inputParameters:
+      - name: connectionId
+        type: string
+        description: connectionId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    LUMEN_TECHNOLOGIES_TOKEN: LUMEN_TECHNOLOGIES_TOKEN

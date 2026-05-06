@@ -4,95 +4,36 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Lumen Technologies
 providerId: lumen-technologies
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
-  - Bandwidth
-  - Edge Cloud
-  - Fiber
-  - Infrastructure
-  - Internet
-  - Network
-  - Networking
-  - Security
-  - Telecom
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Lumen Technologies API surface. Captures
-  per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values
-  to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  - Network
+  - Telecom
+description: Lumen Technologies does not publish a public per-second rate-limit table for its customer-facing
+  APIs. Limits are scoped by customer contract and the underlying service (Internet On-Demand, network
+  management, security). Replace with concrete numbers once Lumen publishes them.
+sources:
+  - https://www.lumen.com
+notes: Lumen API developer portal page was 404 at reconciliation time; values reflect contract-driven scaffold.
 responseCodes:
   throttled: 429
   quotaExceeded: 429
-  serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Lumen Internet On-Demand API
-      - Lumen Network API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Lumen Internet On-Demand API
-      - Lumen Network API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Lumen Internet On-Demand API
-      - Lumen Network API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Lumen Internet On-Demand API
-      - Lumen Network API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Lumen Internet On-Demand API
-      - Lumen Network API
+  - name: Customer API requests
+    scope: customer
+    metric: varies
+    limit: 'see customer agreement'
+  - name: Internet On-Demand provisioning calls
+    scope: customer
+    metric: varies
+    limit: 'see service-specific docs'
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
-maintainers:
-  - FN: API Evangelist
-    email: info@apievangelist.com
+  - name: Contract-scoped
+    description: Steady-state and burst limits are governed by the customer service contract and the
+      specific Lumen product API.
+  - name: Customer-portal auth
+    description: APIs require authenticated customer-portal credentials; out-of-scope endpoints return
+      401/403 rather than 429.
+  - name: Backoff
+    description: On 429, retry with exponential backoff and respect Retry-After when present.

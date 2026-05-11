@@ -71,6 +71,23 @@ common:
     url: https://www.lumen.com/help/en-us/developer-center.html
   - type: TermsOfService
     url: https://www.lumen.com/en-us/about/legal/api-developer-terms-and-conditions.html
+  - type: Integrations
+    url: https://www.lumen.com/en-us/partner/channel-partner-program.html
+integrations:
+  - name: Lumen
+  - name: Salesperson
+  - name: Phone ringing
+  - name: Lumen Tech Co Twitter Account
+  - name: Lumen Technologies LInked In Account
+  - name: Lumen Tech Facebook Account
+  - name: Lumen Technologies Youtube Account
+  - name: Blank Image
+  - name: Australia Flag
+  - name: Hong Kong flag
+  - name: India Flag
+  - name: Japan Flag
+  - name: Singapore Flag
+  - name: United States Flag
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com

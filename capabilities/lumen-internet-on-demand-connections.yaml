@@ -1,0 +1,146 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Lumen Internet On-Demand API — Connections
+  description: 'Lumen Internet On-Demand API — Connections. 3 operations. Lead operation: List connections. Self-contained
+    Naftiko capability covering one Lumen Technologies business surface.'
+  tags:
+  - Lumen Technologies
+  - Connections
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LUMEN_TECHNOLOGIES_API_KEY: LUMEN_TECHNOLOGIES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lumen-internet-on-demand-connections
+    baseUri: https://api.lumen.com
+    description: Lumen Internet On-Demand API — Connections business capability. Self-contained, no shared references.
+    resources:
+    - name: internet-on-demand-connections
+      path: /internet-on-demand/connections
+      operations:
+      - name: listconnections
+        method: GET
+        description: List connections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createconnection
+        method: POST
+        description: Create a connection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: internet-on-demand-connections-connectionId
+      path: /internet-on-demand/connections/{connectionId}
+      operations:
+      - name: getconnection
+        method: GET
+        description: Get connection details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: connectionId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LUMEN_TECHNOLOGIES_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: lumen-internet-on-demand-connections-rest
+    port: 8080
+    description: REST adapter for Lumen Internet On-Demand API — Connections. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/internet-on-demand/connections
+      name: internet-on-demand-connections
+      description: REST surface for internet-on-demand-connections.
+      operations:
+      - method: GET
+        name: listconnections
+        description: List connections
+        call: lumen-internet-on-demand-connections.listconnections
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createconnection
+        description: Create a connection
+        call: lumen-internet-on-demand-connections.createconnection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/internet-on-demand/connections/{connectionid}
+      name: internet-on-demand-connections-connectionid
+      description: REST surface for internet-on-demand-connections-connectionId.
+      operations:
+      - method: GET
+        name: getconnection
+        description: Get connection details
+        call: lumen-internet-on-demand-connections.getconnection
+        with:
+          connectionId: rest.connectionId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lumen-internet-on-demand-connections-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Lumen Internet On-Demand API — Connections. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-connections
+      description: List connections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lumen-internet-on-demand-connections.listconnections
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-connection
+      description: Create a connection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lumen-internet-on-demand-connections.createconnection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-connection-details
+      description: Get connection details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lumen-internet-on-demand-connections.getconnection
+      with:
+        connectionId: tools.connectionId
+      outputParameters:
+      - type: object
+        mapping: $.

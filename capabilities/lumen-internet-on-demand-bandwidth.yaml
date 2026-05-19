@@ -1,0 +1,86 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Lumen Internet On-Demand API — Bandwidth
+  description: 'Lumen Internet On-Demand API — Bandwidth. 1 operations. Lead operation: Update bandwidth. Self-contained Naftiko
+    capability covering one Lumen Technologies business surface.'
+  tags:
+  - Lumen Technologies
+  - Bandwidth
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LUMEN_TECHNOLOGIES_API_KEY: LUMEN_TECHNOLOGIES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lumen-internet-on-demand-bandwidth
+    baseUri: https://api.lumen.com
+    description: Lumen Internet On-Demand API — Bandwidth business capability. Self-contained, no shared references.
+    resources:
+    - name: internet-on-demand-connections-connectionId-bandwidth
+      path: /internet-on-demand/connections/{connectionId}/bandwidth
+      operations:
+      - name: updatebandwidth
+        method: PUT
+        description: Update bandwidth
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: connectionId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LUMEN_TECHNOLOGIES_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: lumen-internet-on-demand-bandwidth-rest
+    port: 8080
+    description: REST adapter for Lumen Internet On-Demand API — Bandwidth. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/internet-on-demand/connections/{connectionid}/bandwidth
+      name: internet-on-demand-connections-connectionid-bandwidth
+      description: REST surface for internet-on-demand-connections-connectionId-bandwidth.
+      operations:
+      - method: PUT
+        name: updatebandwidth
+        description: Update bandwidth
+        call: lumen-internet-on-demand-bandwidth.updatebandwidth
+        with:
+          connectionId: rest.connectionId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lumen-internet-on-demand-bandwidth-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Lumen Internet On-Demand API — Bandwidth. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: update-bandwidth
+      description: Update bandwidth
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: lumen-internet-on-demand-bandwidth.updatebandwidth
+      with:
+        connectionId: tools.connectionId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

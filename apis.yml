@@ -20,41 +20,40 @@ apis:
   - aid: lumen-technologies:internet-on-demand-api
     name: Lumen Internet On-Demand API
     tags:
-    - Bandwidth
-    - Internet
-    - Networking
-    - Telecom
+      - Bandwidth
+      - Internet
+      - Networking
+      - Telecom
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.lumen.com
     humanURL: https://developer.lumen.com/apis/internet-on-demand
     properties:
-    - url: https://developer.lumen.com/apis/internet-on-demand
-      type: Documentation
-    - url: openapi/lumen-internet-on-demand-api-openapi.yml
-      type: OpenAPI
-    - type: NaftikoCapability
-      url: capabilities/lumen-internet-on-demand-bandwidth.yaml
-    - type: NaftikoCapability
-      url: capabilities/lumen-internet-on-demand-connections.yaml
-    description: The Lumen Internet On-Demand API enables programmatic provisioning and management of internet bandwidth services.
-      It provides access to Lumen's global fiber network, allowing customers to dynamically adjust bandwidth, manage connections,
-      and automate network provisioning through a secure REST API using OAuth 2.0 client credentials authentication.
+      - url: https://developer.lumen.com/apis/internet-on-demand
+        type: Documentation
+      - url: openapi/lumen-internet-on-demand-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      The Lumen Internet On-Demand API enables programmatic provisioning and management of internet bandwidth services.
+      It provides access to Lumen's global fiber network, allowing customers to dynamically adjust bandwidth, manage
+      connections, and automate network provisioning through a secure REST API using OAuth 2.0 client credentials
+      authentication.
   - aid: lumen-technologies:network-api
     name: Lumen Network API
     tags:
-    - Fiber
-    - Infrastructure
-    - Network
-    - Telecom
+      - Fiber
+      - Infrastructure
+      - Network
+      - Telecom
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.lumen.com
     humanURL: https://developer.lumen.com/products
     properties:
-    - url: https://developer.lumen.com/products
-      type: Documentation
-    description: The Lumen Network API provides programmatic access to Lumen's network and data services. The Developer Center
-      enables access to simple, global, secure, and reliable network APIs that allow customers to build applications leveraging
-      Lumen's telecom and fiber infrastructure. Authentication uses OAuth 2.0 client credentials grant type.
+      - url: https://developer.lumen.com/products
+        type: Documentation
+    description: >-
+      The Lumen Network API provides programmatic access to Lumen's network and data services. The Developer Center
+      enables access to simple, global, secure, and reliable network APIs that allow customers to build applications
+      leveraging Lumen's telecom and fiber infrastructure. Authentication uses OAuth 2.0 client credentials grant type.
 common:
   - type: GitHubOrganization
     url: https://github.com/Lumen-Technologies-LLC
@@ -94,7 +93,8 @@ integrations:
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
-description: Lumen Technologies is a multinational technology company that delivers networking, edge cloud, security, communication
-  and collaboration, and managed and professional services to global enterprises and consumers. Through its Developer Center,
-  Lumen exposes REST APIs that allow customers to programmatically provision and manage network and bandwidth services across
-  its global fiber infrastructure using OAuth 2.0 authentication.
+description: >-
+  Lumen Technologies is a multinational technology company that delivers networking, edge cloud, security, communication
+  and collaboration, and managed and professional services to global enterprises and consumers. Through its Developer
+  Center, Lumen exposes REST APIs that allow customers to programmatically provision and manage network and bandwidth
+  services across its global fiber infrastructure using OAuth 2.0 authentication.

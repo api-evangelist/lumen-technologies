@@ -2,7 +2,7 @@ aid: lumen-technologies
 name: Lumen Technologies
 url: https://raw.githubusercontent.com/api-evangelist/lumen-technologies/refs/heads/main/apis.yml
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Bandwidth
   - Edge Cloud
@@ -24,7 +24,7 @@ apis:
       - Internet
       - Networking
       - Telecom
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.lumen.com
     humanURL: https://developer.lumen.com/apis/internet-on-demand
     properties:
@@ -44,7 +44,7 @@ apis:
       - Infrastructure
       - Network
       - Telecom
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.lumen.com
     humanURL: https://developer.lumen.com/products
     properties:

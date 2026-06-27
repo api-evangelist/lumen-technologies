@@ -73,7 +73,7 @@ common:
     url: https://www.lumen.com/en-us/about/legal/api-developer-terms-and-conditions.html
   - type: Integrations
     url: https://www.lumen.com/en-us/partner/channel-partner-program.html
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://developer.lumen.com/llms.txt
 integrations:
   - name: Lumen

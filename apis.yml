@@ -55,6 +55,10 @@ apis:
       enables access to simple, global, secure, and reliable network APIs that allow customers to build applications
       leveraging Lumen's telecom and fiber infrastructure. Authentication uses OAuth 2.0 client credentials grant type.
 common:
+  - type: DomainSecurity
+    url: security/lumen-technologies-domain-security.yml
+  - type: Authentication
+    url: authentication/lumen-technologies-authentication.yml
   - type: OAuthScopes
     url: scopes/lumen-technologies-scopes.yml
   - type: GitHubOrganization

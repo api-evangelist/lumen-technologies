@@ -55,6 +55,8 @@ apis:
       enables access to simple, global, secure, and reliable network APIs that allow customers to build applications
       leveraging Lumen's telecom and fiber infrastructure. Authentication uses OAuth 2.0 client credentials grant type.
 common:
+  - type: OAuthScopes
+    url: scopes/lumen-technologies-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/Lumen-Technologies-LLC
   - type: LinkedIn

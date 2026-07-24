@@ -1,0 +1,68 @@
+openapi: 3.1.0
+info:
+  title: Lumen Internet On-Demand Bandwidth API
+  description: The Lumen Internet On-Demand API enables programmatic provisioning and management of internet bandwidth services. It provides access to Lumen's global fiber network, allowing customers to dynamically adjust bandwidth, manage connections, and automate network provisioning through a secure REST API using OAuth 2.0 client credentials authentication.
+  version: '2026-01-01'
+  contact:
+    name: Lumen Developer Center
+    url: https://developer.lumen.com
+  termsOfService: https://www.lumen.com/en-us/about/legal/api-developer-terms-and-conditions.html
+servers:
+- url: https://api.lumen.com
+  description: Production
+security:
+- oauth2: []
+tags:
+- name: Bandwidth
+  description: Bandwidth provisioning and adjustment
+paths:
+  /internet-on-demand/connections/{connectionId}/bandwidth:
+    put:
+      operationId: updateBandwidth
+      summary: Update bandwidth
+      description: Dynamically adjust the bandwidth for an existing connection.
+      tags:
+      - Bandwidth
+      parameters:
+      - name: connectionId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BandwidthUpdate'
+      responses:
+        '200':
+          description: Bandwidth updated
+        '400':
+          description: Bad request
+        '404':
+          description: Connection not found
+components:
+  schemas:
+    BandwidthUpdate:
+      type: object
+      required:
+      - bandwidth
+      properties:
+        bandwidth:
+          type: string
+        effectiveDate:
+          type: string
+          format: date-time
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.lumen.com/oauth2/token
+          scopes:
+            read: Read access to connections
+            write: Write access to connections
+externalDocs:
+  description: Lumen Developer Center Documentation
+  url: https://developer.lumen.com/apis/internet-on-demand

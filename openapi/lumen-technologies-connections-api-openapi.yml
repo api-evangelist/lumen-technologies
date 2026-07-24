@@ -1,30 +1,20 @@
 openapi: 3.1.0
 info:
-  title: Lumen Internet On-Demand API
-  description: >-
-    The Lumen Internet On-Demand API enables programmatic provisioning and
-    management of internet bandwidth services. It provides access to Lumen's
-    global fiber network, allowing customers to dynamically adjust bandwidth,
-    manage connections, and automate network provisioning through a secure
-    REST API using OAuth 2.0 client credentials authentication.
+  title: Lumen Internet On-Demand Bandwidth Connections API
+  description: The Lumen Internet On-Demand API enables programmatic provisioning and management of internet bandwidth services. It provides access to Lumen's global fiber network, allowing customers to dynamically adjust bandwidth, manage connections, and automate network provisioning through a secure REST API using OAuth 2.0 client credentials authentication.
   version: '2026-01-01'
   contact:
     name: Lumen Developer Center
     url: https://developer.lumen.com
   termsOfService: https://www.lumen.com/en-us/about/legal/api-developer-terms-and-conditions.html
-externalDocs:
-  description: Lumen Developer Center Documentation
-  url: https://developer.lumen.com/apis/internet-on-demand
 servers:
-  - url: https://api.lumen.com
-    description: Production
-tags:
-  - name: Bandwidth
-    description: Bandwidth provisioning and adjustment
-  - name: Connections
-    description: Manage internet connections
+- url: https://api.lumen.com
+  description: Production
 security:
-  - oauth2: []
+- oauth2: []
+tags:
+- name: Connections
+  description: Manage internet connections
 paths:
   /internet-on-demand/connections:
     get:
@@ -32,7 +22,7 @@ paths:
       summary: List connections
       description: Retrieve a list of internet on-demand connections.
       tags:
-        - Connections
+      - Connections
       responses:
         '200':
           description: Successful response
@@ -52,7 +42,7 @@ paths:
       summary: Create a connection
       description: Provision a new internet on-demand connection.
       tags:
-        - Connections
+      - Connections
       requestBody:
         required: true
         content:
@@ -76,13 +66,13 @@ paths:
       summary: Get connection details
       description: Retrieve details of a specific connection.
       tags:
-        - Connections
+      - Connections
       parameters:
-        - name: connectionId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: connectionId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -92,42 +82,7 @@ paths:
                 $ref: '#/components/schemas/Connection'
         '404':
           description: Connection not found
-  /internet-on-demand/connections/{connectionId}/bandwidth:
-    put:
-      operationId: updateBandwidth
-      summary: Update bandwidth
-      description: Dynamically adjust the bandwidth for an existing connection.
-      tags:
-        - Bandwidth
-      parameters:
-        - name: connectionId
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BandwidthUpdate'
-      responses:
-        '200':
-          description: Bandwidth updated
-        '400':
-          description: Bad request
-        '404':
-          description: Connection not found
 components:
-  securitySchemes:
-    oauth2:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: https://api.lumen.com/oauth2/token
-          scopes:
-            read: Read access to connections
-            write: Write access to connections
   schemas:
     Connection:
       type: object
@@ -137,10 +92,10 @@ components:
         status:
           type: string
           enum:
-            - active
-            - provisioning
-            - suspended
-            - terminated
+          - active
+          - provisioning
+          - suspended
+          - terminated
         bandwidth:
           type: string
         location:
@@ -151,8 +106,8 @@ components:
     ConnectionRequest:
       type: object
       required:
-        - bandwidth
-        - locationId
+      - bandwidth
+      - locationId
       properties:
         bandwidth:
           type: string
@@ -160,13 +115,15 @@ components:
           type: string
         description:
           type: string
-    BandwidthUpdate:
-      type: object
-      required:
-        - bandwidth
-      properties:
-        bandwidth:
-          type: string
-        effectiveDate:
-          type: string
-          format: date-time
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.lumen.com/oauth2/token
+          scopes:
+            read: Read access to connections
+            write: Write access to connections
+externalDocs:
+  description: Lumen Developer Center Documentation
+  url: https://developer.lumen.com/apis/internet-on-demand

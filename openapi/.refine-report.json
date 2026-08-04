@@ -1,0 +1,16 @@
+{
+  "provider": "lumen-technologies",
+  "sources": [
+    "lumen-technologies-bandwidth-api-openapi.yml",
+    "lumen-technologies-connections-api-openapi.yml"
+  ],
+  "outputs": [
+    "lumen-technologies-bandwidth-api-openapi.yml",
+    "lumen-technologies-connections-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

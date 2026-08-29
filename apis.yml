@@ -85,6 +85,9 @@ apis:
   - type: Documentation
     url: https://developer.lumen.com/apis/internet-on-demand
 common:
+  - type: CapabilityMap
+    url: capabilities/lumen-technologies-capability-edges.yml
+    name: Lumen Technologies Business Capability Map
   - type: AgenticAccess
     url: agentic-access/lumen-technologies-agentic-access.yml
   - type: DomainSecurity

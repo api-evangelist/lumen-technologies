@@ -34,6 +34,16 @@ tags:
   - Fiber
   - Infrastructure
   - Internet
+  - Networks
+  - Networking
+  - Security
+  - Telecom
+tags_raw:
+  - Bandwidth
+  - Edge Cloud
+  - Fiber
+  - Infrastructure
+  - Internet
   - Network
   - Networking
   - Security
@@ -45,6 +55,11 @@ apis:
 - aid: lumen-technologies:network-api
   name: Lumen Network API
   tags:
+  - Fiber
+  - Infrastructure
+  - Networks
+  - Telecom
+  tags_raw:
   - Fiber
   - Infrastructure
   - Network

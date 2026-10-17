@@ -84,18 +84,6 @@ paths:
           description: Connection not found
 components:
   schemas:
-    ConnectionRequest:
-      type: object
-      required:
-      - bandwidth
-      - locationId
-      properties:
-        bandwidth:
-          type: string
-        locationId:
-          type: string
-        description:
-          type: string
     Connection:
       type: object
       properties:
@@ -115,6 +103,18 @@ components:
         createdAt:
           type: string
           format: date-time
+    ConnectionRequest:
+      type: object
+      required:
+      - bandwidth
+      - locationId
+      properties:
+        bandwidth:
+          type: string
+        locationId:
+          type: string
+        description:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2

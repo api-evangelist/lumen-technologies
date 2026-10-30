@@ -1,4 +1,4 @@
-# Lumen Technologies (lumen-technologies)
+# Lumen Technologies
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,86 +66,126 @@
 
 Lumen Technologies is a multinational technology company that delivers networking, edge cloud, security, communication and collaboration, and managed and professional services to global enterprises and consumers. Through its Developer Center, Lumen exposes REST APIs that allow customers to programmatically provision and manage network and bandwidth services across its global fiber infrastructure using OAuth 2.0 authentication.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/lumen-technologies/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/lumen-technologies/refs/heads/main/apis.yml)
+**Areas:** Bandwidth · Edge Cloud · Fiber · Infrastructure · Internet · Networks · Networking · Security · Telecommunications
 
-## Scope
+## Lumen Technologies on APIs.io
 
-- **Type:** Index
+Everything profiled for Lumen Technologies is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/lumen-technologies/](https://apis.io/providers/lumen-technologies/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Bandwidth
-- Edge Cloud
-- Fiber
-- Infrastructure
-- Internet
-- Network
-- Networking
-- Security
-- Telecom
+- [Lumen Network API](https://apis.io/apis/lumen-technologies/network-api/) — The Lumen Network API provides programmatic access to Lumen's network and data services. The Developer Center enables access to simple, global, secure, and…
+- [Lumen Technologies Bandwidth API](https://apis.io/apis/lumen-technologies/lumen-technologies-bandwidth-api/) — Bandwidth provisioning and adjustment
+- [Lumen Technologies Connections API](https://apis.io/apis/lumen-technologies/lumen-technologies-connections-api/) — Manage internet connections
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Lumen Internet On-Demand API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Lumen Internet On-Demand API enables programmatic provisioning and management of internet bandwidth services. It provides access to Lumen's global fiber network, allowing customers to dynamically adjust bandwidth, manage connections, and automate network provisioning through a secure REST API using OAuth 2.0 client credentials authentication.
+- [Lumen Technologies Agentic Access](https://apis.io/agentic-access/lumen-technologies/lumen-technologies-agentic-access/)
 
-- **Human URL:** [https://developer.lumen.com/apis/internet-on-demand](https://developer.lumen.com/apis/internet-on-demand)
-- **Base URL:** `https://api.lumen.com`
+#### Collections (3)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Bandwidth
-- Internet
-- Networking
-- Telecom
+- [Lumen Internet On-Demand API](https://apis.io/collections/lumen-technologies/open-lumen-internet-on-demand-api/)
+- [Lumen Internet On-Demand Bandwidth API](https://apis.io/collections/lumen-technologies/open-lumen-technologies-bandwidth-api/)
+- [Lumen Internet On-Demand Bandwidth Connections API](https://apis.io/collections/lumen-technologies/open-lumen-technologies-connections-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://developer.lumen.com/apis/internet-on-demand)
-- [OpenAPI](openapi/lumen-internet-on-demand-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/lumen-internet-on-demand-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/lumen-internet-on-demand-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Lumen Network API
+- [Lumen Technologies Authentication](https://apis.io/security/lumen-technologies/lumen-technologies-authentication/)
+- [Lumen Technologies Domain Security](https://apis.io/security/lumen-technologies/lumen-technologies-domain-security/)
 
-The Lumen Network API provides programmatic access to Lumen's network and data services. The Developer Center enables access to simple, global, secure, and reliable network APIs that allow customers to build applications leveraging Lumen's telecom and fiber infrastructure. Authentication uses OAuth 2.0 client credentials grant type.
+#### OAuth scopes (1)
 
-- **Human URL:** [https://developer.lumen.com/products](https://developer.lumen.com/products)
-- **Base URL:** `https://api.lumen.com`
+The permissions the API asks for.
 
-#### Tags
+- [Lumen Technologies Scopes](https://apis.io/scopes/lumen-technologies/lumen-technologies-scopes/)
 
-- Fiber
-- Infrastructure
-- Network
-- Telecom
+#### Plans and pricing (1)
 
-#### Properties
+Published plans, tiers and prices.
 
-- [Documentation](https://developer.lumen.com/products)
-- [Postman Collection](collections/lumen-internet-on-demand-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/lumen-internet-on-demand-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Lumen Technologies Plans Pricing](https://apis.io/plans/lumen-technologies/lumen-technologies-plans-pricing/)
 
-## Common Properties
+#### Rate limits (1)
 
-- [GitHub Organization](https://github.com/Lumen-Technologies-LLC)
-- [LinkedIn](https://www.linkedin.com/company/lumentechnologies)
+Published request limits.
+
+- [Lumen Technologies Rate Limits](https://apis.io/rate-limits/lumen-technologies/lumen-technologies-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Lumen Technologies Finops](https://apis.io/finops/lumen-technologies/lumen-technologies-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.lumen.com)
-- [Portal](https://developer.lumen.com/)
 - [Documentation](https://developer.lumen.com/library)
-- [F A Q](https://developer.lumen.com/faq)
 - [Support](https://www.lumen.com/help/en-us/developer-center.html)
-- [Terms of Service](https://www.lumen.com/en-us/about/legal/api-developer-terms-and-conditions.html)
-- [Integrations](https://www.lumen.com/en-us/partner/channel-partner-program.html)
-- [L L Ms Txt](https://developer.lumen.com/llms.txt)
+- [Terms of service](https://www.lumen.com/en-us/about/legal/api-developer-terms-and-conditions.html)
+- [GitHub](https://github.com/Lumen-Technologies-LLC)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** API Evangelist
-**Email:** info@apievangelist.com
+**Kin Score 30.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 51.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 26.2 |
+| Access clarity | 15.8 |
+
+**Agent readiness 20.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 27.5** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/lumen-technologies/](https://apis.io/providers/lumen-technologies/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Lumen Technologies: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/lumen-technologies/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
